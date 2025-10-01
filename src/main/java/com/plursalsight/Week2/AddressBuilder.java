@@ -20,9 +20,6 @@ public class AddressBuilder {
         String BillingAddress = getAddress(scanner , "Billing");
         String ShippingAddress = getAddress(scanner , "Shipping");
 
-
-
-
         //Creates a StringBuilder object to efficiently build the final output string
         //Appends all collected information with proper formatting and line breaks
 
