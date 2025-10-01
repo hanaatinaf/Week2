@@ -3,55 +3,48 @@ import  java.util.Scanner;
 public class AddressBuilder {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        // user information
         System.out.println("Please provide the following information:");
-        System.out.println("Enter Full name:");
+        System.out.println("Full name: ");
         String fullName = scanner.nextLine();
 
-        System.out.println("Enter Street Address :");
-        String streetAddress = scanner.nextLine();
-
-        System.out.println("Enter City :");
-        String City = scanner.nextLine();
-
-        System.out.println("Enter State:");
-        String State = scanner.nextLine();
-
-        System.out.println("Enter Zip code:\t");
-        String Zipcode = scanner.nextLine();
-
-        //System.out.println("Billing City:  " + City);
-       // System.out.println("Billing Street: " + streetAddress);
-        //System.out.println("Full name: " + fullName);
-
+        String BillingAddress = getAddress(scanner , "Billing");
+        String ShippingAddress = getAddress(scanner , "Shipping");
 
         // create a StringBuillder object
         StringBuilder skills = new StringBuilder();
-        // append strings to the StringBuilder object
-        skills.append(fullName + "\n");
-        skills.append("Billing Address:\n");
-        skills.append( streetAddress + " ");
-        skills.append( City + " ," );
-        skills.append( State );
-        skills.append( " " + Zipcode);
-        // retrieve the underlying characters from
-        // the StringBuilder
-        String mySkills = skills.toString();
-        System.out.println( mySkills);
+        // append to the StringBuilder object
+        skills.append(fullName + " \n ");
+        skills.append("Billing Address: \n ");
+        skills.append( BillingAddress  + " \n ");
 
+        skills.append("Shipping Address: \n ");
+        skills.append( ShippingAddress );
 
+        System.out.println(skills.toString());
 
-        StringBuilder ShoppingAddress = new StringBuilder();
-        ShoppingAddress.append("shipping Address");
-        ShoppingAddress.append(streetAddress);
-        ShoppingAddress.append(City);
-        ShoppingAddress.append(State);
-        ShoppingAddress.append(Zipcode);
+    }
 
-        String shopAddress = ShoppingAddress.toString();
-        System.out.println(shopAddress);
+    public static  String getAddress(Scanner scanner , String info){
+        System.out.println(info + " Street");
+        String streetAddress = scanner.nextLine();
 
+        System.out.println(info+  " City:");
+        String City = scanner.nextLine();
 
+        System.out.println(info + " State:");
+        String State = scanner.nextLine();
+
+        System.out.println( info + " Zip:");
+        String Zipcode = scanner.nextLine();
+
+        // // create a StringBuillder object
+        StringBuilder address = new StringBuilder();
+        address.append(streetAddress + " \n");
+        address.append(City + ",");
+        address.append(State + " ");
+        address.append(Zipcode) ;
+        return address.toString();
 
     }
 }
