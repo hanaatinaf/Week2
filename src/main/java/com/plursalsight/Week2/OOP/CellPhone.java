@@ -15,8 +15,6 @@ public class CellPhone {
      this.owner = " ";
 
     }
-
-
     public CellPhone(long serialNumber , String model, String carrier, String  phoneNumber, String owner){
 
     }
@@ -59,5 +57,8 @@ public class CellPhone {
 
     public void setCarrier(String carrier) {
         this.carrier = carrier;
+    }
+    public  void dial( String ownerNumberCall) {
+        System.out.printf("The name: %s ,  is calling phone-parameter %s ", getOwner(),ownerNumberCall);
     }
 }
